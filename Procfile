@@ -1,0 +1,1 @@
+web: gunicorn chizurustable.wsgi --log-file -
