@@ -9,7 +9,12 @@ from wagtail.core.models import Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 class HomePage(Page):
-    pass
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        # Add extra variables and return the updated context
+        context['blog_entries'] = BlogPage.objects.live()
+        return context    
 
 class BlogPage(Page):
     kv = models.ForeignKey(
