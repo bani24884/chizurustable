@@ -168,6 +168,3 @@ WAGTAIL_SITE_NAME = "chizurustable"
 BASE_URL = 'http://example.com'
 
 TAILWIND_APP_NAME = 'theme'
-
-django_heroku.settings(locals())
-
