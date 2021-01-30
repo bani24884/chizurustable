@@ -49,6 +49,10 @@ def remove_homepage(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
+    run_before = [
+        ('wagtailcore', '0041_group_collection_permissions_verbose_name_plural'),
+    ]
+
     dependencies = [
         ('home', '0001_initial'),
     ]
