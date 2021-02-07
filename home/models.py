@@ -7,6 +7,9 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core.models import Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.core.blocks import RawHTMLBlock
+
+
 
 class HomePage(Page):
     def get_context(self, request):
@@ -29,7 +32,8 @@ class BlogPage(Page):
     body = StreamField([
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock())
+        ('image', ImageChooserBlock()),
+        ('rawhtml', RawHTMLBlock()),
     ])
 
     content_panels = Page.content_panels + [
@@ -37,4 +41,5 @@ class BlogPage(Page):
         FieldPanel('subtitle'),
         FieldPanel('date'),
         StreamFieldPanel('body'),
+
     ]
